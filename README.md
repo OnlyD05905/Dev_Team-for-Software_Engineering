@@ -10,11 +10,11 @@ Tài liệu này hướng dẫn quy trình làm việc nhóm trên GitHub cho d�
 | Branch | Mục đích | Người phụ trách |
 |:--------|:----------|:----------------|
 | `main` | Chứa phiên bản **ổn định**, đã test và sẵn sàng nộp. | TechLead |
-| `develop` *(tùy chọn)* | Dùng để tích hợp các feature trước khi merge vào `main`. | TechLead |
-| `frontend` | Phát triển **giao diện UI/UX**. | Dev 1 |
-| `backend` | Xử lý **API, logic nghiệp vụ, server-side**. | Dev 2 |
-| `database` | Thiết kế & quản lý **CSDL, ERD, script SQL**. | Dev 3 |
-| `test` | Kiểm thử và xác minh chức năng (QC). | QC |
+| `Develop` *(tùy chọn)* | Dùng để tích hợp các feature trước khi merge vào `main`. | QC |
+| `Frontend` | Phát triển **giao diện UI/UX**. | Dev 1 |
+| `Backend` | Xử lý **API, logic nghiệp vụ, server-side**. | Dev 2 |
+| `Database` | Thiết kế & quản lý **CSDL, ERD, script SQL**. | Dev 3 |
+| `Test` | Kiểm thử và xác minh chức năng (QC). | QC |
 
 ---
 
