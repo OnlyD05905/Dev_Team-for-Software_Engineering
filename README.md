@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE USER 'khoa_admin1'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
-GRANT ALL PRIVILEGES ON *.* TO 'khoa_admin1'@'localhost';
+CREATE USER 'your_name'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
+GRANT ALL PRIVILEGES ON *.* TO 'your_name'@'localhost';
 FLUSH PRIVILEGES;
