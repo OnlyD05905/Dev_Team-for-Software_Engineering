@@ -1,3 +1,5 @@
+# MySQL 
+
 CREATE DATABASE se_logreg CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE se_logreg;
 
@@ -13,3 +15,5 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE USER 'your_name'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
 GRANT ALL PRIVILEGES ON *.* TO 'your_name'@'localhost';
 FLUSH PRIVILEGES;
+
+# Link Video: https://youtu.be/UqADcFz4xKk
