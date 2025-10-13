@@ -4,7 +4,7 @@ Video mô phỏng tại đây: [YouTube Link](<https://www.youtube.com/watch?v=s
 ---
 
 ## 🧩 Notes
-- Backend chưa hoàn thiện, vẫn còn chưa hạn chế ở test.
+- Backend chưa hoàn thiện, vẫn còn hạn chế ở test.
 - Chỉ mới thực hiện Dashboard cho Student, chưa cập nhật Tutor và Admin
 
 --- 
