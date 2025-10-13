@@ -68,7 +68,7 @@ app.post('/users', (req, res) => {
     return res.status(400).json({ error: 'Thiếu thông tin' });
 
   db.query(
-    'SELECT id, name, email FROM users WHERE email = ? AND password = ?',
+    'SELECT * FROM users WHERE `email` = ? AND `password` = ?',
     [email, password],
     (err, results) => {
       if (err) {
