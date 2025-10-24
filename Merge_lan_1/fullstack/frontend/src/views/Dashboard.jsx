@@ -28,6 +28,14 @@ export default function Dashboard() {
     navigate('/');
   };
 
+  const handleTutorRegistration = () => {
+    navigate('/tutor-registration');
+  };
+
+  const handleTutorHistory = () => {
+    navigate('/tutor-history');
+  };
+
   const courses = [
     { id: 1, name: "Hệ cơ sở dữ liệu", teacher: "TS Nguyễn Văn A" },
     { id: 2, name: "Mạng máy tính", teacher: "ThS Nguyễn Văn B" },
@@ -47,7 +55,16 @@ export default function Dashboard() {
           <li>Trang chủ</li>
           <li>Các khóa học của tôi</li>
           <li>Lịch học</li>
-          <li>Đăng ký</li>
+          {role === 'student' && (
+            <>
+              <li onClick={handleTutorRegistration} style={{cursor: 'pointer', color: '#FFFFFF'}}>
+                📚 Đăng ký hỗ trợ
+              </li>
+              <li onClick={handleTutorHistory} style={{cursor: 'pointer', color: '#FFFFFF'}}>
+                📋 Lịch sử yêu cầu
+              </li>
+            </>
+          )}
           <li onClick={handleLogout} style={{cursor: 'pointer', color: '#ff6b6b'}}>Đăng xuất</li>
         </ul>
       </nav>

@@ -18,7 +18,7 @@ export default function RoleSelection() {
       </div>
 
       <div className="button-group">
-        <button className="btn green" onClick={() => handleSelectRole("teacher")}>
+        <button className="btn green" onClick={() => handleSelectRole("tutor")}>
           Giảng viên HCMUT đăng nhập
         </button>
         <button className="btn orange" onClick={() => handleSelectRole("student")}>

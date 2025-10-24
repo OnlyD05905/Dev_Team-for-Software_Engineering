@@ -17,6 +17,7 @@ function LoginPage() {
 
   const roleText = {
     teacher: "DÀNH CHO GIẢNG VIÊN",
+    tutor: "DÀNH CHO GIẢNG VIÊN",
     student: "DÀNH CHO SINH VIÊN",
     admin: "DÀNH CHO QUẢN TRỊ VIÊN",
   };
@@ -26,22 +27,45 @@ function LoginPage() {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/users", {
-        email: email,
-        password: password,
-      });
+      // Nếu role là tutor/teacher, gọi API đăng nhập tutor
+      if (role === 'tutor' || role === 'teacher') {
+        const res = await axios.post("http://localhost:5000/tutor/login", {
+          email: email,
+          password: password,
+        });
 
-      if (res.data.success) {
-        // Lưu thông tin user vào localStorage
-        localStorage.setItem('user', JSON.stringify(res.data.user));
-        localStorage.setItem('role', role);
-        alert(`Đăng nhập thành công! Xin chào ${res.data.user.name}`);
-        navigate("/dashboard");
+        if (res.data.success) {
+          // Lưu thông tin tutor vào localStorage
+          localStorage.setItem('user', JSON.stringify(res.data.tutor));
+          localStorage.setItem('role', 'tutor');
+          alert(`Đăng nhập thành công! Xin chào ${res.data.tutor.name}`);
+          navigate("/dashboard");
+        } else {
+          alert("Sai tài khoản hoặc mật khẩu!");
+        }
       } else {
-        alert("Sai tài khoản hoặc mật khẩu!");
+        // Đăng nhập cho student/admin
+        const res = await axios.post("http://localhost:5000/users", {
+          email: email,
+          password: password,
+        });
+
+        if (res.data.success) {
+          // Lưu thông tin user vào localStorage
+          localStorage.setItem('user', JSON.stringify(res.data.user));
+          localStorage.setItem('role', role);
+          alert(`Đăng nhập thành công! Xin chào ${res.data.user.name}`);
+          navigate("/dashboard");
+        } else {
+          alert("Sai tài khoản hoặc mật khẩu!");
+        }
       }
     } catch (err) {
-      alert("Lỗi kết nối server!");
+      if (err.response?.data?.error) {
+        alert(err.response.data.error);
+      } else {
+        alert("Lỗi kết nối server!");
+      }
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -90,9 +114,15 @@ function LoginPage() {
               </button>
 
               <div style={{textAlign: 'center', marginTop: '10px'}}>
-                <a href={`/register?role=${role}`} style={{color: '#0066cc', textDecoration: 'none'}}>
-                  Chưa có tài khoản? Đăng ký ngay
-                </a>
+                {role === 'tutor' || role === 'teacher' ? (
+                  <a href="/tutor/register" style={{color: '#0066cc', textDecoration: 'none'}}>
+                    Chưa có tài khoản? Đăng ký giảng viên ngay
+                  </a>
+                ) : (
+                  <a href={`/register?role=${role}`} style={{color: '#0066cc', textDecoration: 'none'}}>
+                    Chưa có tài khoản? Đăng ký ngay
+                  </a>
+                )}
               </div>
             </form>
           </section>

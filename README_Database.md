@@ -30,12 +30,7 @@ Chuẩn bị tài liệu kết nối để **backend (Node.js)** sử dụng an 
 ---
 
 ## 🧱 Cấu trúc dữ liệu
-CSDL gồm một 3 bảng  `student`, `tutor`, `admin` lưu thông tin:
-- `id` — định danh tự tăng (PRIMARY KEY)  
-- `name` — tên hiển thị của người dùng  
-- `email` — duy nhất cho mỗi người dùng (UNIQUE)  
-- `password` — mật khẩu  
-- `created_at` — thời điểm tạo  
+Đang cập nhật...
 
 ---
 
